@@ -1,0 +1,29 @@
+import * as React from "react";
+import { usePostdata } from "../../hooks/usePostData";
+import PostItem from "./post-item";
+
+const PostList = () => {
+  const data = usePostdata();
+  const count = data.allMdx.totalCount;
+  const nodes = data.allMdx.nodes;
+
+  return (
+    <div className="m-8">
+      <div className="text-xl font-semibold mb-6 text-gray-800">
+        {count}건의 포스트
+      </div>
+      <hr className="mb-6 border-t border-gray-300" />
+      <div className="space-y-8">
+        <ul className="space-y-8">
+          {nodes.map((node: any, index: number) => (
+            <li key={index}>
+              <PostItem {...node} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+export default PostList;
