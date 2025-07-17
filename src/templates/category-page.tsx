@@ -39,7 +39,7 @@ const CategoryPage = ({
   return (
     <Layout>
       <CategoryList selected={category.name} />
-      <div className="m-8">
+      <div className="m-8 sm:mx-30 lg:mx-60">
         <h1 className="text-2xl font-semibold mb-6 text-gray-800">
           📂 {category.name} :: {category.count}건의 포스트
         </h1>

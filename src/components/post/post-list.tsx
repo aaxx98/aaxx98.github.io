@@ -8,7 +8,7 @@ const PostList = () => {
   const nodes = data.allMdx.nodes;
 
   return (
-    <div className="m-8 mt-12 sm:mt-8">
+    <div className="m-8 mt-12 sm:mt-8 sm:mx-30 lg:mx-60">
       <div className="text-2xl font-semibold mb-6 text-gray-800">
         전체 {count}건의 포스트
       </div>
