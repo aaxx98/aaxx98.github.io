@@ -30,5 +30,5 @@ export const mdxComponents = {
     props: React.JSX.IntrinsicAttributes &
       React.ClassAttributes<HTMLAnchorElement> &
       React.AnchorHTMLAttributes<HTMLAnchorElement>
-  ) => <a className="text-blue-600 underline" {...props} />,
+  ) => <a className="text-blue-500 underline" {...props} />,
 };

@@ -19,8 +19,8 @@ type BlogPostProps = {
 const BlogPost = ({ data, children }: BlogPostProps) => {
   return (
     <Layout>
-      <div className="m-12">
-        <PostContent data={data} />
+      <PostContent data={data} />
+      <div className="m-8 p-6 rounded-lg bg-white border-2 border-blue-200">
         {children}
       </div>
     </Layout>

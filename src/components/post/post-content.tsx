@@ -2,12 +2,12 @@ import * as React from "react";
 
 const PostContent = ({ data }: any) => {
   return (
-    <div className="m-8">
-      <h2 className="text-2xl font-bold text-gray-800 mb-2">
+    <div className="m-8 mt-12 sm:mt-8">
+      <h1 className="text-4xl font-bold text-gray-800 mb-2 pt-8 pb-1 border-b-2 border-blue-200">
         {data.mdx.frontmatter.title}
-      </h2>
+      </h1>
       <p className="text-sm text-gray-500 mb-1 text-right">
-        {data.mdx.frontmatter.date}
+        작성일: {data.mdx.frontmatter.date}
       </p>
     </div>
   );
