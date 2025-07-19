@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 import Header from "./header";
 import { MDXProvider } from "@mdx-js/react";
 import { mdxComponents } from "./mdx-components";
+import Footer from "./footer";
 
 type LayoutProps = {
   children: ReactNode;
@@ -9,11 +10,12 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <Header />
       <MDXProvider components={mdxComponents}>
-        <main>{children}</main>
+        <main className="flex-grow">{children}</main>
       </MDXProvider>
+      <Footer />
     </div>
   );
 };

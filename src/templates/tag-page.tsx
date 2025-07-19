@@ -2,7 +2,7 @@ import { graphql, PageProps } from "gatsby";
 import React from "react";
 import Layout from "../components/layout";
 import PostItem from "../components/post/post-item";
-import CategoryList from "../components/search/category-list";
+import TagList from "../components/search/tag-list";
 import Seo from "../components/seo";
 
 type Post = {
@@ -22,26 +22,26 @@ type DataProps = {
 };
 
 type PageContextProps = {
-  category: {
+  tag: {
     name: string;
     count: number;
   };
-  categoryName: string;
+  tagName: string;
 };
 
-const CategoryPage = ({
+const TagPage = ({
   data,
   pageContext,
 }: PageProps<DataProps, PageContextProps>) => {
-  const { category } = pageContext;
+  const { tag } = pageContext;
   const posts = data.allMdx.nodes;
 
   return (
     <Layout>
-      <CategoryList selected={category.name} />
+      <TagList selected={tag.name} />
       <div className="m-8 sm:mx-30 lg:mx-60">
         <h1 className="text-2xl font-semibold mb-6 text-gray-800">
-          📂 {category.name} :: {category.count}건의 포스트
+          📂 {tag.name} :: {tag.count}건의 포스트
         </h1>
         <div className="space-y-8">
           <ul className="space-y-8">
@@ -58,10 +58,10 @@ const CategoryPage = ({
 };
 
 export const query = graphql`
-  query ($categoryName: String!) {
+  query ($tagName: [String]) {
     allMdx(
       sort: { frontmatter: { date: DESC } }
-      filter: { frontmatter: { category: { eq: $categoryName } } }
+      filter: { frontmatter: { tags: { in: $tagName } } }
     ) {
       nodes {
         id
@@ -77,7 +77,7 @@ export const query = graphql`
 `;
 
 export const Head = ({ pageContext }: PageProps<{}, PageContextProps>) => (
-  <Seo title={`${pageContext.category.name} 카테고리의 포스트`} />
+  <Seo title={`${pageContext.tag.name} 태그한 포스트`} />
 );
 
-export default CategoryPage;
+export default TagPage;

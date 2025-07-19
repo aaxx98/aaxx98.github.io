@@ -9,11 +9,17 @@ exports.createPages = async ({ graphql, actions }) => {
   const CategoryListPageTemplate = path.resolve(
     `./src/templates/category-list-page.tsx`
   );
+  const TagPageTemplate = path.resolve(`./src/templates/tag-page.tsx`);
+  const TagListPageTemplate = path.resolve(`./src/templates/tag-list-page.tsx`);
 
   const result = await graphql(`
     {
       allMdx {
-        group(field: { frontmatter: { category: SELECT } }) {
+        categories: group(field: { frontmatter: { category: SELECT } }) {
+          fieldValue
+          totalCount
+        }
+        tags: group(field: { frontmatter: { tags: SELECT } }) {
           fieldValue
           totalCount
         }
@@ -21,7 +27,8 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  const categories = result.data.allMdx.group;
+  const categories = result.data.allMdx.categories;
+  const tags = result.data.allMdx.tags;
 
   categories.forEach((category) => {
     createPage({
@@ -40,5 +47,24 @@ exports.createPages = async ({ graphql, actions }) => {
   createPage({
     path: "/categories",
     component: CategoryListPageTemplate,
+  });
+
+  tags.forEach((tag) => {
+    createPage({
+      path: `/tags/${encodeURIComponent(tag.fieldValue)}`,
+      component: TagPageTemplate,
+      context: {
+        tag: {
+          name: tag.fieldValue,
+          count: tag.totalCount,
+        },
+        tagName: tag.fieldValue,
+      },
+    });
+  });
+
+  createPage({
+    path: "/tags",
+    component: TagListPageTemplate,
   });
 };

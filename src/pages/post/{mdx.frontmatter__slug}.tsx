@@ -20,7 +20,7 @@ const BlogPost = ({ data, children }: BlogPostProps) => {
   return (
     <Layout>
       <PostContent data={data} />
-      <div className="m-8 p-6 rounded-lg bg-white border-2 border-blue-200">
+      <div className="m-8 m-8 sm:mx-30 lg:mx-60 p-6 rounded-lg bg-white border-2 border-blue-200">
         {children}
       </div>
     </Layout>

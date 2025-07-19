@@ -1,11 +1,11 @@
 import { graphql, useStaticQuery } from "gatsby";
 
-export const useCategoryData = () => {
+export const useTagData = () => {
   const data = useStaticQuery(graphql`
     query {
       allMdx {
         totalCount
-        group(field: { frontmatter: { category: SELECT } }) {
+        group(field: { frontmatter: { tags: SELECT } }) {
           fieldValue
           totalCount
         }
