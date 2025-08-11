@@ -2,6 +2,7 @@ import { graphql } from "gatsby";
 import * as React from "react";
 import Layout from "../../components/layout";
 import PostContent from "../../components/post/post-content";
+import PostTags from "../../components/post/post-tags";
 import Seo from "../../components/seo";
 
 type BlogPostProps = {
@@ -11,6 +12,9 @@ type BlogPostProps = {
       frontmatter: {
         title: string;
         date: string;
+        slug: string;
+        category: string;
+        tags: string[];
       };
     };
   };
@@ -20,8 +24,19 @@ const BlogPost = ({ data, children }: BlogPostProps) => {
   return (
     <Layout>
       <PostContent data={data} />
-      <div className="m-8 m-8 sm:mx-30 lg:mx-60 p-6 rounded-lg bg-white border-2 border-blue-200">
+      <div className="mr-8 ml-8 sm:mx-30 lg:mx-60 p-6 rounded-lg bg-white border-2 border-blue-200">
         {children}
+        <div className="mt-8">
+          <PostTags tags={data.mdx.frontmatter.tags} />
+        </div>
+      </div>
+      <div className="mr-8 ml-8 mt-2 sm:mx-30 lg:mx-60 text-right">
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="px-4 py-2 border-1 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white rounded-full transition-colors"
+        >
+          ↑ TOP
+        </button>
       </div>
     </Layout>
   );
@@ -33,6 +48,9 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "YYYY년 M월 D일")
+        slug
+        category
+        tags
       }
     }
   }

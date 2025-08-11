@@ -15,7 +15,10 @@ const Header = () => {
           {`{${title}}`}
         </Link>
 
-        <nav className="hidden text-sm text-blue-400 mr-10 flex sm:block">
+        <nav
+          aria-label="menu-pc"
+          className="hidden text-sm text-blue-400 mr-10 flex sm:block"
+        >
           <Link
             to="/categories"
             className="relative px-6 py-2 hover:text-black hover:font-semibold"
@@ -37,7 +40,10 @@ const Header = () => {
         </nav>
       </div>
 
-      <nav className="flex justify-center sm:hidden text-sm text-blue-400 space-x-4 sm:fixed bg-white border-b-1 border-blue-100">
+      <nav
+        aria-label="menu-mobile"
+        className="flex justify-center sm:hidden text-sm text-blue-400 space-x-4 sm:fixed bg-white border-b-1 border-blue-100"
+      >
         <Link
           to="/categories"
           className="relative px-6 py-2 hover:text-black hover:font-semibold"

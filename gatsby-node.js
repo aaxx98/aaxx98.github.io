@@ -35,6 +35,14 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/categories/${encodeURIComponent(category.fieldValue)}`,
       component: CategoryPageTemplate,
       context: {
+        breadCrumbs: [
+          { name: "🏠", url: "/" },
+          { name: "카테고리", url: "/categories" },
+          {
+            name: category.fieldValue,
+            url: `/categories/${category.fieldValue}`,
+          },
+        ],
         category: {
           name: category.fieldValue,
           count: category.totalCount,
@@ -47,6 +55,12 @@ exports.createPages = async ({ graphql, actions }) => {
   createPage({
     path: "/categories",
     component: CategoryListPageTemplate,
+    context: {
+      breadCrumbs: [
+        { name: "🏠", url: "/" },
+        { name: "카테고리", url: "/categories" },
+      ],
+    },
   });
 
   tags.forEach((tag) => {
@@ -54,6 +68,14 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/tags/${encodeURIComponent(tag.fieldValue)}`,
       component: TagPageTemplate,
       context: {
+        breadCrumbs: [
+          { name: "🏠", url: "/" },
+          { name: "태그", url: "/tags" },
+          {
+            name: tag.fieldValue,
+            url: `/tags/${tag.fieldValue}`,
+          },
+        ],
         tag: {
           name: tag.fieldValue,
           count: tag.totalCount,
@@ -66,5 +88,11 @@ exports.createPages = async ({ graphql, actions }) => {
   createPage({
     path: "/tags",
     component: TagListPageTemplate,
+    context: {
+      breadCrumbs: [
+        { name: "🏠", url: "/" },
+        { name: "태그", url: "/tags" },
+      ],
+    },
   });
 };

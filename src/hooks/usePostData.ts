@@ -13,6 +13,8 @@ export const usePostdata = () => {
             date(formatString: "YYYY년 M월 D일")
             slug
             title
+            category
+            tags
           }
         }
       }

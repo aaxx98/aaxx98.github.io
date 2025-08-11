@@ -1,9 +1,11 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
+import Breadcrumb from "../components/breadcrumb";
 import Layout from "../components/layout";
 import PostItem from "../components/post/post-item";
 import CategoryList from "../components/search/category-list";
 import Seo from "../components/seo";
+import { BreadcrumbItem } from "../types/breadcrumb";
 
 type Post = {
   id: string;
@@ -22,6 +24,7 @@ type DataProps = {
 };
 
 type PageContextProps = {
+  breadCrumbs: BreadcrumbItem[];
   category: {
     name: string;
     count: number;
@@ -40,6 +43,7 @@ const CategoryPage = ({
     <Layout>
       <CategoryList selected={category.name} />
       <div className="m-8 sm:mx-30 lg:mx-60">
+        <Breadcrumb info={pageContext.breadCrumbs} />
         <h1 className="text-2xl font-semibold mb-6 text-gray-800">
           📂 {category.name} :: {category.count}건의 포스트
         </h1>
@@ -69,6 +73,8 @@ export const query = graphql`
           title
           slug
           date(formatString: "YYYY-MM-DD")
+          tags
+          category
         }
         excerpt
       }
