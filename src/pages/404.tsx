@@ -21,7 +21,7 @@ const NotFoundPage: React.FC<PageProps> = () => {
           <div className="mt-6">
             <Link
               to="/"
-              className="inline-block px-4 py-2 text-md font-medium text-blue-400 border border-blue-400 rounded-md hover:bg-white hover:border-blue-600 hover:text-blue-600 transition duration-300"
+              className="px-5 py-3 text-lg border-1 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white rounded-full transition-colors"
             >
               전체 글 목록으로 이동
             </Link>
