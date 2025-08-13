@@ -1,5 +1,6 @@
 import { Link } from "gatsby";
 import React from "react";
+import { tagNames } from "../../code/tagName";
 import { useTagData } from "../../hooks/useTagData";
 
 type TagListProps = {
@@ -31,7 +32,7 @@ const TagList = ({ selected }: TagListProps) => {
               }  border-2 border-blue-200 hover:bg-blue-50 hover:shadow-lg transition-shadow duration-300 mr-2`}
             >
               <span className="text-base font-semibold text-gray-600 hover:text-blue-800 transition duration-300">
-                {tag.fieldValue}
+                {tagNames[tag.fieldValue]}
               </span>
               <span className="text-sm text-gray-500 mr-1">
                 ({tag.totalCount})

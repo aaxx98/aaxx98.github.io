@@ -1,5 +1,6 @@
 import { Link } from "gatsby";
 import React from "react";
+import { categoryNames } from "../../code/categoryName";
 import { useCategoryData } from "../../hooks/useCategoryData";
 
 type CategoryListProps = {
@@ -33,7 +34,7 @@ const CategoryList = ({ selected }: CategoryListProps) => {
               }  border-2 border-blue-200 hover:bg-blue-50 hover:shadow-lg transition-shadow duration-300 mr-2`}
             >
               <span className="text-base font-semibold text-gray-600 hover:text-blue-800 transition duration-300">
-                {category.fieldValue}
+                {categoryNames[category.fieldValue]}
               </span>
               <span className="text-sm text-gray-500 mr-1">
                 ({category.totalCount})

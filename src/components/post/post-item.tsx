@@ -1,5 +1,6 @@
 import { Link } from "gatsby";
 import React from "react";
+import { categoryNames } from "../../code/categoryName";
 import PostTags from "./post-tags";
 
 type PostItemProps = {
@@ -31,7 +32,7 @@ const PostItem = ({ id, frontmatter, excerpt }: PostItemProps) => {
           <div className="text-right mb-3">
             <Link to={`/categories/${frontmatter.category}`}>
               <span className="text-sm text-blue-500 hover:underline">
-                📂 {frontmatter.category}
+                📂 {categoryNames[frontmatter.category]}
               </span>
             </Link>
           </div>

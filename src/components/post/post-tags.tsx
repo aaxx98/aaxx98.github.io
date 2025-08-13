@@ -1,5 +1,6 @@
 import { Link } from "gatsby";
 import * as React from "react";
+import { tagNames } from "../../code/tagName";
 
 type PostTagProps = {
   tags: string[];
@@ -13,7 +14,7 @@ const PostTags = ({ tags }: PostTagProps) => {
             key={tag}
             className="px-3 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full hover:bg-blue-200 hover:text-blue-500"
           >
-            #{tag}
+            #{tagNames[tag]}
           </span>
         </Link>
       ))}
