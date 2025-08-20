@@ -3,7 +3,7 @@ import { StaticImage } from "gatsby-plugin-image";
 
 const Footer = () => {
   return (
-    <footer className="mt-12 border-t border-blue-100 py-6 text-center text-sm text-gray-500">
+    <footer className="border-t border-blue-100 py-6 text-center text-sm text-gray-500">
       <div className="flex justify-center space-x-3 mb-3">
         <a
           href="https://github.com/aaxx98"
