@@ -4,4 +4,5 @@ export const tagNames: Record<string, string> = {
   blog: "블로그",
   post: "글",
   test: "TEST",
+  "tailwind-css": "Tailwind CSS",
 };

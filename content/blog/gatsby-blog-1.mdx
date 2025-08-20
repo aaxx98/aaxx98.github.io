@@ -1,0 +1,46 @@
+---
+title: "Gatsby 블로그 구축하기 (1) - Gatsby 프로젝트 생성"
+date: "2025-08-21"
+slug: "gatsby-blog-1"
+category: "blog"
+tags: ["gatsby", "react", "blog", "tailwind-css"]
+---
+
+기술 블로그를 운영해서 개인적인 기록을 남겨야겠다는 생각은 오래전부터 했지만, 출퇴근만으로 바쁘다는 핑계로 미뤄왔다.
+
+그러다보니 개발자로 일한지 4년이 흘렸다! 사실 엄청 대단하고 중요한 일을 한게 아니라 딱히 기록하는 의미가 없다고 생각했다. 잔디심기를 위한 무의미한 til을 남기는게 싫었다.
+
+회사에서 나오고 이전 이력을 되돌아보려니 나에게 남은 자료는 메모를 갈기던 업무수첩 뿐이고, 경력기술서를 작성하려니 과거에 어떤 고민을 했었는지, 무엇을 했었는지 3개월전의 것들도 잘 기억나지 않는다.
+
+무엇보다 내 능력을 증명할만한 포트폴리오를 만들어야 취업시장에서 어필이 가능하다고 느꼈다...
+
+역시 기술블로그가 필요하다. 포트폴리오를 만드는 겸 직접 블로그를 만들어보기로 했다.
+
+# Gatsby 블로그
+
+## Gatsby 소개와 선택한 이유
+
+Gatsby는 React 기반의 정적 사이트 생성기(Static Site Generator, SSG)다.
+
+Next.js처럼 서버 사이드 렌더링을 지원하는 프레임워크도 있지만, Gatsby는 서버가 없고 정적 파일을 빌드해서 배포하는 데 특화되어 있다.
+
+정적 사이트 생성기의 특징은 모든 페이지가 HTML, CSS, JS 파일로 미리 렌더링된다는 점이다. 덕분에 GitHub Pages 같은 정적 호스팅 서비스만 있으면 별도 운영비가 들지 않고 빠르게 배포할 수 있다.
+
+## Gatsby init부터 deploy까지
+
+Gatsby 공식문서 튜토리얼대로 따라하면 되기 때문에 세팅이 간단했다.
+
+TypeScript를 선호하기 때문에 `gatsby new`로 프로젝트 생성 시에 TypeScript 사용을 선택했다.
+
+블로그 디자인은 간단하게 className으로 조정하며 만드려고 해서 tailwind css를 사용했다.
+
+레포지토리를 생성하고, Github Pages 설정 후, `npm run deploy` 명령어 한 줄만 실행하면, 빌드된 정적 페이지가 자동으로 gh-pages 브랜치에 생성되어 배포되는 것을 확인할 수 있었다.
+
+Github Actions 스크립트로 자동배포 설정을 해두어 main에 push하면 자동 배포되도록 설정했다.
+
+### 참고
+
+- [Gatsby TypeScript 가이드](https://www.gatsbyjs.com/docs/how-to/custom-configuration/typescript/)
+- [Gatsby getting started](https://www.gatsbyjs.com/docs/tutorial/getting-started/)
+- [Install Tailwind CSS with Gatsby](https://tailwindcss.com/docs/installation/framework-guides/gatsby)
+- [Github Pages로 배포](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/how-gatsby-works-with-github-pages/)
