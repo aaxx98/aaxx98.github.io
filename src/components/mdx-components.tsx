@@ -11,11 +11,16 @@ export const mdxComponents = {
       React.ClassAttributes<HTMLHeadingElement> &
       React.HTMLAttributes<HTMLHeadingElement>
   ) => <h2 className="text-2xl font-semibold my-3" {...props} />,
+  h3: (
+    props: React.JSX.IntrinsicAttributes &
+      React.ClassAttributes<HTMLHeadingElement> &
+      React.HTMLAttributes<HTMLHeadingElement>
+  ) => <h2 className="text-xl font-semibold my-3" {...props} />,
   p: (
     props: React.JSX.IntrinsicAttributes &
       React.ClassAttributes<HTMLParagraphElement> &
       React.HTMLAttributes<HTMLParagraphElement>
-  ) => <p className="text-gray-700 leading-7 my-2" {...props} />,
+  ) => <p className="text-gray-700 leading-7" {...props} />,
   ul: (
     props: React.JSX.IntrinsicAttributes &
       React.ClassAttributes<HTMLUListElement> &
