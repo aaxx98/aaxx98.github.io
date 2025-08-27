@@ -15,6 +15,17 @@ export const usePostdata = () => {
             title
             category
             tags
+            thumbnail {
+              childImageSharp {
+                gatsbyImageData(
+                  layout: CONSTRAINED
+                  width: 800
+                  height: 600
+                  placeholder: BLURRED
+                  transformOptions: { fit: COVER, cropFocus: CENTER }
+                )
+              }
+            }
           }
         }
       }
