@@ -20,7 +20,7 @@ const TagList = ({ selected }: TagListProps) => {
   const tags = data.group;
 
   return (
-    <div className="m-8 mt-12 sm:mt-8 sm:mx-30 lg:mx-60">
+    <div className="max-w-[850px] w-full justify-self-center m-8 mt-12 sm:mt-8 sm:mx-30 lg:mx-60">
       <h1 className="text-2xl font-semibold mb-6 text-gray-800">태그로 검색</h1>
       <ul className="flex flex-wrap gap-2 pb-4">
         {tags.map((tag: any) => (

@@ -13,7 +13,7 @@ const Layout = ({ children }: LayoutProps) => {
     <div className="min-h-screen flex flex-col">
       <Header />
       <MDXProvider components={mdxComponents}>
-        <main className="flex-grow mb-12">{children}</main>
+        <main className="flex-grow mb-12 mx-10">{children}</main>
       </MDXProvider>
       <Footer />
     </div>

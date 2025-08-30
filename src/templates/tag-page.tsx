@@ -41,20 +41,22 @@ const TagPage = ({
 
   return (
     <Layout>
-      <TagList selected={tag.name} />
-      <div className="m-8 sm:mx-30 lg:mx-60">
-        <Breadcrumb info={pageContext.breadCrumbs} />
-        <h1 className="text-2xl font-semibold mb-6 text-gray-800">
-          🏷️ {tag.name} :: {tag.count}건의 포스트
-        </h1>
-        <div className="space-y-8">
-          <ul className="space-y-8">
-            {posts.map((node: any, index: number) => (
-              <li key={index}>
-                <PostItem {...node} />
-              </li>
-            ))}
-          </ul>
+      <div className="w-full">
+        <TagList selected={tag.name} />
+        <div className="max-w-[850px] w-full justify-self-center m-8 sm:mx-30 lg:mx-60">
+          <Breadcrumb info={pageContext.breadCrumbs} />
+          <h1 className="text-2xl font-semibold mb-6 text-gray-800">
+            🏷️ {tag.name} :: {tag.count}건의 포스트
+          </h1>
+          <div className="space-y-8">
+            <ul className="space-y-8">
+              {posts.map((node: any, index: number) => (
+                <li key={index}>
+                  <PostItem {...node} />
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </Layout>

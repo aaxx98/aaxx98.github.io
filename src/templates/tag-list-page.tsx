@@ -13,12 +13,14 @@ type PageContextProps = {
 const TagListPage = ({ pageContext }: PageProps<unknown, PageContextProps>) => {
   return (
     <Layout>
-      <TagList />
-      <div className="m-8 sm:mx-30 lg:mx-60">
-        <Breadcrumb info={pageContext.breadCrumbs} />
-        <h2 className="text-2xl font-semibold mb-6 text-gray-800">
-          🏷️ 태그를 선택하세요.
-        </h2>
+      <div className="w-full">
+        <TagList />
+        <div className="max-w-[850px] w-full justify-self-center m-8 sm:mx-30 lg:mx-60">
+          <Breadcrumb info={pageContext.breadCrumbs} />
+          <h2 className="text-2xl font-semibold mb-6 text-gray-800">
+            🏷️ 태그를 선택하세요.
+          </h2>
+        </div>
       </div>
     </Layout>
   );
