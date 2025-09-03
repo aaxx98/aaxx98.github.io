@@ -15,12 +15,18 @@ const Seo = ({ title }: SeoProps) => {
     }
   `);
 
-  return title == "" ? (
-    <title> {data.site.siteMetadata.title}</title>
-  ) : (
-    <title>
-      {title} | {data.site.siteMetadata.title}
-    </title>
+  return (
+    <>
+      title == "" ? (<title> {data.site.siteMetadata.title}</title>) : (
+      <title>
+        {title} | {data.site.siteMetadata.title}
+      </title>
+      )
+      <meta
+        name="google-site-verification"
+        content="coXYBqdXz20NCF29TTKd8Plu-sNimboMIdtEZ5WZZrU"
+      />
+    </>
   );
 };
 
