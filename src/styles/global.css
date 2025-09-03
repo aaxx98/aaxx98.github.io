@@ -1,1 +1,8 @@
 @import "tailwindcss";
+pre[class*="language-"] {
+  border-radius: 0.5rem !important;
+}
+
+code[class*="language-"] {
+  border-radius: 0.5rem !important;
+}

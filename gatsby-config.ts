@@ -26,6 +26,12 @@ const config: GatsbyConfig = {
               withWebp: true,
             },
           },
+          {
+            resolve: "gatsby-remark-prismjs",
+            options: {
+              noInlineHighlight: true,
+            },
+          },
         ],
       },
     },
