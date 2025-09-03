@@ -35,6 +35,10 @@ const Seo = ({ title }: SeoProps) => {
         name="google-site-verification"
         content="coXYBqdXz20NCF29TTKd8Plu-sNimboMIdtEZ5WZZrU"
       />
+      <meta
+        name="naver-site-verification"
+        content="aa33d972d16906f015d8a1004d50e72f7d8a0f43"
+      />
     </>
   );
 };
