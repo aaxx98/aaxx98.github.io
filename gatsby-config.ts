@@ -3,6 +3,8 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `AAXX98 BLOG`,
+    description: "풀스택 개발자 aaxx98의 개발 블로그입니다.",
+    author: "aaxx98/장혜진",
     siteUrl: `https://aaxx98.github.io/`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
@@ -10,6 +12,8 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
+    `gatsby-plugin-react-helmet`,
+    "gatsby-plugin-sitemap",
     "gatsby-plugin-postcss",
     {
       resolve: `gatsby-plugin-mdx`,
@@ -56,6 +60,19 @@ const config: GatsbyConfig = {
         display: "standalone",
         icon: "src/images/icon.png",
         crossOrigin: `use-credentials`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-canonical-urls",
+      options: {
+        siteUrl: "https://aaxx98.github.io",
+        stripQueryString: true,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        policy: [{ userAgent: "*", allow: "/" }],
       },
     },
   ],
