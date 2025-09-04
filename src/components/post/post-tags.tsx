@@ -5,17 +5,13 @@ import { tagNames } from "../../code/tagName";
 type PostTagProps = {
   tags: string[];
 };
+
 const PostTags = ({ tags }: PostTagProps) => {
   return (
-    <div className="flex flex-wrap gap-2 mt-4">
+    <div className="post-tags">
       {tags.map((tag: string) => (
-        <Link to={`/tags/${tag}`}>
-          <span
-            key={tag}
-            className="px-3 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full hover:bg-blue-200 hover:text-blue-500"
-          >
-            #{tagNames[tag]}
-          </span>
+        <Link key={tag} to={`/tags/${tag}`} className="post-tag">
+          #{tagNames[tag] || tag}
         </Link>
       ))}
     </div>

@@ -1,0 +1,43 @@
+.comment-container {
+  font-family: "RoundedFixedsys", monospace;
+  max-width: 850px;
+  width: 100%;
+  margin: 32px auto 0;
+  padding: 0 20px;
+}
+
+.comment-status {
+  text-align: center;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.comment-status.pending {
+  color: var(--color-text);
+  background: #2a2a2f;
+  border: 1px solid var(--color-gray);
+}
+
+.comment-status.error {
+  color: #fff;
+  background: var(--color-error);
+  border: 1px solid var(--color-error);
+}
+
+.utterances-container {
+  min-height: 200px;
+  width: 100%;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .comment-container {
+    padding: 0 15px;
+  }
+  .comment-status {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+}

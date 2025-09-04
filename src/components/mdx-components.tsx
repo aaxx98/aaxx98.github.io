@@ -1,191 +1,98 @@
 import React from "react";
 
+// 간단한 class 병합 유틸
+const cx = (...cls: (string | undefined)[]) => cls.filter(Boolean).join(" ");
+
 export const mdxComponents = {
   // 헤더
-  h1: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLHeadingElement> &
-      React.HTMLAttributes<HTMLHeadingElement>
-  ) => (
-    <h1
-      className="text-4xl font-bold my-6 text-gray-900 border-b border-gray-200 pb-2"
-      {...props}
-    />
+  h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h1 {...props} className={cx("mdx-h1", props.className)} />
+  ),
+  h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h2 {...props} className={cx("mdx-h2", props.className)} />
+  ),
+  h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h3 {...props} className={cx("mdx-h3", props.className)} />
+  ),
+  h4: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h4 {...props} className={cx("mdx-h4", props.className)} />
+  ),
+  h5: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h5 {...props} className={cx("mdx-h5", props.className)} />
+  ),
+  h6: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h6 {...props} className={cx("mdx-h6", props.className)} />
   ),
 
-  h2: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLHeadingElement> &
-      React.HTMLAttributes<HTMLHeadingElement>
-  ) => <h2 className="text-3xl font-semibold my-5 text-gray-800" {...props} />,
+  // 텍스트
+  p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
+    <p {...props} className={cx("mdx-p", props.className)} />
+  ),
 
-  h3: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLHeadingElement> &
-      React.HTMLAttributes<HTMLHeadingElement>
-  ) => <h3 className="text-2xl font-semibold my-4 text-gray-800" {...props} />,
-
-  h4: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLHeadingElement> &
-      React.HTMLAttributes<HTMLHeadingElement>
-  ) => <h4 className="text-xl font-medium my-3 text-gray-700" {...props} />,
-
-  h5: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLHeadingElement> &
-      React.HTMLAttributes<HTMLHeadingElement>
-  ) => <h5 className="text-lg font-medium my-2 text-gray-700" {...props} />,
-
-  h6: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLHeadingElement> &
-      React.HTMLAttributes<HTMLHeadingElement>
-  ) => <h6 className="text-base font-medium my-2 text-gray-600" {...props} />,
-
-  // 텍스트 요소들
-  p: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLParagraphElement> &
-      React.HTMLAttributes<HTMLParagraphElement>
-  ) => <p className="text-gray-700 leading-7" {...props} />,
-
-  // 리스트 요소들
-  ul: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLUListElement> &
-      React.HTMLAttributes<HTMLUListElement>
-  ) => <ul className="list-disc pl-6 my-4 space-y-1" {...props} />,
-
-  ol: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLOListElement> &
-      React.OlHTMLAttributes<HTMLOListElement>
-  ) => <ol className="list-decimal pl-6 my-3 space-y-1" {...props} />,
-
-  li: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLLIElement> &
-      React.LiHTMLAttributes<HTMLLIElement>
-  ) => <li className="text-gray-700 leading-6" {...props} />,
+  // 리스트
+  ul: (props: React.HTMLAttributes<HTMLUListElement>) => (
+    <ul {...props} className={cx("mdx-ul", props.className)} />
+  ),
+  ol: (props: React.OlHTMLAttributes<HTMLOListElement>) => (
+    <ol {...props} className={cx("mdx-ol", props.className)} />
+  ),
+  li: (props: React.LiHTMLAttributes<HTMLLIElement>) => (
+    <li {...props} className={cx("mdx-li", props.className)} />
+  ),
 
   // 링크
-  a: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLAnchorElement> &
-      React.AnchorHTMLAttributes<HTMLAnchorElement>
-  ) => (
-    <a
-      className="text-blue-600 underline hover:text-blue-800 transition-colors"
-      {...props}
-    />
+  a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
+    <a {...props} className={cx("mdx-a", props.className)} />
   ),
 
-  // 강조 텍스트
-  strong: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLElement> &
-      React.HTMLAttributes<HTMLElement>
-  ) => <strong className="font-semibold text-gray-900" {...props} />,
+  // 강조
+  strong: (props: React.HTMLAttributes<HTMLElement>) => (
+    <strong {...props} className={cx("mdx-strong", props.className)} />
+  ),
+  em: (props: React.HTMLAttributes<HTMLElement>) => (
+    <em {...props} className={cx("mdx-em", props.className)} />
+  ),
 
-  em: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLElement> &
-      React.HTMLAttributes<HTMLElement>
-  ) => <em className="italic text-gray-800" {...props} />,
-
-  // 인용구
-  blockquote: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLQuoteElement> &
-      React.BlockquoteHTMLAttributes<HTMLQuoteElement>
-  ) => (
-    <blockquote
-      className="border-l-4 border-gray-300 pl-4 my-4 italic text-gray-600 bg-gray-50 py-2"
-      {...props}
-    />
+  // 인용
+  blockquote: (props: React.BlockquoteHTMLAttributes<HTMLQuoteElement>) => (
+    <blockquote {...props} className={cx("mdx-blockquote", props.className)} />
   ),
 
   // 코드
-  code: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLElement> &
-      React.HTMLAttributes<HTMLElement>
-  ) => (
-    <code
-      className="bg-gray-100 px-2 py-1 rounded text-sm font-mono text-gray-800"
-      {...props}
-    />
+  code: (props: React.HTMLAttributes<HTMLElement>) => (
+    <code {...props} className={cx("mdx-code", props.className)} />
   ),
-
-  pre: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLPreElement> &
-      React.HTMLAttributes<HTMLPreElement>
-  ) => (
-    <pre className="!rounded-lg p-4 overflow-x-auto my-4 text-sm" {...props} />
+  pre: (props: React.HTMLAttributes<HTMLPreElement>) => (
+    <pre {...props} className={cx("mdx-pre", props.className)} />
   ),
 
   // 구분선
-  hr: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLHRElement> &
-      React.HTMLAttributes<HTMLHRElement>
-  ) => <hr className="border-gray-300 my-8" {...props} />,
+  hr: (props: React.HTMLAttributes<HTMLHRElement>) => (
+    <hr {...props} className={cx("mdx-hr", props.className)} />
+  ),
 
   // 테이블
-  table: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLTableElement> &
-      React.TableHTMLAttributes<HTMLTableElement>
-  ) => (
-    <table
-      className="w-full border-collapse my-4 border border-gray-200"
-      {...props}
-    />
+  table: (props: React.TableHTMLAttributes<HTMLTableElement>) => (
+    <table {...props} className={cx("mdx-table", props.className)} />
   ),
-
-  thead: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLTableSectionElement> &
-      React.HTMLAttributes<HTMLTableSectionElement>
-  ) => <thead className="bg-gray-50" {...props} />,
-
-  tbody: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLTableSectionElement> &
-      React.HTMLAttributes<HTMLTableSectionElement>
-  ) => <tbody {...props} />,
-
-  tr: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLTableRowElement> &
-      React.HTMLAttributes<HTMLTableRowElement>
-  ) => <tr className="border-b border-gray-200" {...props} />,
-
-  th: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLTableCellElement> &
-      React.ThHTMLAttributes<HTMLTableCellElement>
-  ) => (
-    <th
-      className="px-4 py-2 text-left font-semibold text-gray-900"
-      {...props}
-    />
+  thead: (props: React.HTMLAttributes<HTMLTableSectionElement>) => (
+    <thead {...props} className={cx("mdx-thead", props.className)} />
   ),
-
-  td: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLTableCellElement> &
-      React.TdHTMLAttributes<HTMLTableCellElement>
-  ) => <td className="px-4 py-2 text-gray-700" {...props} />,
+  tbody: (props: React.HTMLAttributes<HTMLTableSectionElement>) => (
+    <tbody {...props} className={cx("mdx-tbody", props.className)} />
+  ),
+  tr: (props: React.HTMLAttributes<HTMLTableRowElement>) => (
+    <tr {...props} className={cx("mdx-tr", props.className)} />
+  ),
+  th: (props: React.ThHTMLAttributes<HTMLTableCellElement>) => (
+    <th {...props} className={cx("mdx-th", props.className)} />
+  ),
+  td: (props: React.TdHTMLAttributes<HTMLTableCellElement>) => (
+    <td {...props} className={cx("mdx-td", props.className)} />
+  ),
 
   // 이미지
-  img: (
-    props: React.JSX.IntrinsicAttributes &
-      React.ClassAttributes<HTMLImageElement> &
-      React.ImgHTMLAttributes<HTMLImageElement>
-  ) => (
-    <img className="max-w-full h-auto my-4 rounded-lg shadow-sm" {...props} />
+  img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
+    <img {...props} className={cx("mdx-img", props.className)} />
   ),
 };

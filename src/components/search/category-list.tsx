@@ -1,3 +1,5 @@
+import { faBook } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "gatsby";
 import React from "react";
 import { categoryNames } from "../../code/categoryName";
@@ -20,30 +22,31 @@ const CategoryList = ({ selected }: CategoryListProps) => {
   const categories = data.group;
 
   return (
-    <div className="max-w-[850px] w-full justify-self-center m-8 mt-12 sm:mt-8 sm:mx-30 lg:mx-60">
-      <h1 className="text-2xl font-semibold mb-6 text-gray-800">
-        카테고리로 검색
-      </h1>
-      <ul className="pb-4">
+    <div className="category-list-container">
+      <div className="tag-list-header">
+        <h1 className="category-list-title">
+          <FontAwesomeIcon icon={faBook} className="title-icon" />
+          시리즈로 검색
+        </h1>
+        <div className="total-count">총 {categories.length}개의 시리즈</div>
+      </div>
+      <div className="category-grid">
         {categories.map((category: any) => (
-          <Link to={`/categories/${category.fieldValue}`}>
-            <li
-              key={category.fieldValue}
-              className={`inline-block px-5 py-2 rounded-full ${
-                selected === category.fieldValue ? "bg-blue-100" : "bg-white"
-              }  border-2 border-blue-200 hover:bg-blue-50 hover:shadow-lg transition-shadow duration-300 mr-2`}
-            >
-              <span className="text-base font-semibold text-gray-600 hover:text-blue-800 transition duration-300">
-                {categoryNames[category.fieldValue]}
-              </span>
-              <span className="text-sm text-gray-500 mr-1">
-                ({category.totalCount})
-              </span>
-            </li>
+          <Link
+            key={category.fieldValue}
+            to={`/categories/${category.fieldValue}`}
+            className={`category-card ${
+              selected === category.fieldValue ? "active" : ""
+            }`}
+          >
+            <div className="category-name">
+              {categoryNames[category.fieldValue] || category.fieldValue}
+            </div>
+            <div className="category-count">{category.totalCount}개의 글</div>
           </Link>
         ))}
-      </ul>
-      <hr className="border-t border-blue-200" />
+      </div>
+      <div className="category-list-divider"></div>
     </div>
   );
 };

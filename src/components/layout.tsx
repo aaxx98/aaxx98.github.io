@@ -10,10 +10,10 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="layout-wrapper">
       <Header />
       <MDXProvider components={mdxComponents}>
-        <main className="flex-grow mb-12 mx-10">{children}</main>
+        <main className="main-content">{children}</main>
       </MDXProvider>
       <Footer />
     </div>

@@ -1,39 +1,33 @@
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-blue-100 py-6 text-center text-sm text-gray-500">
-      <div className="flex justify-center space-x-3 mb-3">
-        <a
-          href="https://github.com/aaxx98"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-          className="hover:opacity-60 transition"
-        >
-          <StaticImage
-            src="../images/github_icon.png"
-            alt="GitHub"
-            width={24}
-            height={24}
-            placeholder="none"
-          />
-        </a>
-        <div className="flex items-center justify-center sm:justify-start space-x-1 text-sm">
-          <p className="text-xs">email:</p>
+    <footer className="footer">
+      <div className="footer-content">
+        <p>
+          &copy; {new Date().getFullYear()} aaxx98's Blog. All rights reserved.
+        </p>
+
+        <div className="social-links">
           <a
-            href="mailto:aaxx98@naver.com"
-            aria-label="Email"
-            className="hover:opacity-60 transition"
+            href="https://github.com/aaxx98"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
           >
-            aaxx98@naver.com
+            GITHUB
+            <FontAwesomeIcon icon={faGithub} />
+          </a>
+          <a href="mailto:aaxx98@naver.com" className="tooltip">
+            EMAIL
+            <FontAwesomeIcon icon={faEnvelope} />
+            <span className="tooltip-text">aaxx98@naver.com / 장혜진</span>
           </a>
         </div>
       </div>
-      <p className="text-xs text-blue-400">
-        © {new Date().getFullYear()} aaxx98's Blog. All rights reserved.
-      </p>
     </footer>
   );
 };

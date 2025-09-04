@@ -1,3 +1,5 @@
+import { faBook } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { PageProps } from "gatsby";
 import React from "react";
 import Breadcrumb from "../components/breadcrumb";
@@ -15,12 +17,15 @@ const CategoryListPage = ({
 }: PageProps<unknown, PageContextProps>) => {
   return (
     <Layout>
-      <div className="w-full">
+      <div className="tag-page-container">
         <CategoryList />
-        <div className="max-w-[850px] w-full justify-self-center m-8 sm:mx-30 lg:mx-60">
-          <Breadcrumb info={pageContext.breadCrumbs} />
-          <h2 className="text-2xl font-semibold mb-6 text-gray-800">
-            📂 카테고리를 선택하세요.
+        <div className="tag-page-below">
+          <div className="breadcrumb-wrap">
+            <Breadcrumb info={pageContext.breadCrumbs} />
+          </div>
+          <h2 className="category-page-subtitle">
+            <FontAwesomeIcon icon={faBook} className="title-icon" />
+            시리즈를 선택하세요.
           </h2>
         </div>
       </div>
@@ -28,6 +33,6 @@ const CategoryListPage = ({
   );
 };
 
-export const Head = () => <Seo title={"카테고리 목록"} />;
+export const Head = () => <Seo title={"글 시리즈 목록"} />;
 
 export default CategoryListPage;

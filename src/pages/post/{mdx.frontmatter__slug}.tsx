@@ -25,23 +25,25 @@ const BlogPost = ({ data, children }: BlogPostProps) => {
   return (
     <Layout>
       <PostContent data={data} />
-      <div className="justify-self-center max-w-[850px] w-full mr-8 ml-8 sm:mx-30 lg:mx-60 p-6 rounded-lg bg-white border-2 border-blue-200">
-        {children}
-        <div className="mt-8">
+      <section className="post-body-container">
+        <div className="post-body">{children}</div>
+        <div className="post-tags-area">
           <PostTags tags={data.mdx.frontmatter.tags} />
         </div>
-        <div className="mt-2 text-right">
+        <div className="post-top-wrap">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="px-4 py-2 border-1 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white rounded-full transition-colors"
+            className="post-top-button"
+            aria-label="맨 위로 이동"
           >
             ↑ TOP
           </button>
         </div>
-      </div>
-      <div className="w-full mt-8">
+      </section>
+
+      <section className="comment-section">
         <Comment />
-      </div>
+      </section>
     </Layout>
   );
 };

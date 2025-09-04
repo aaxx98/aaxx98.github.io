@@ -36,8 +36,8 @@ exports.createPages = async ({ graphql, actions }) => {
       component: CategoryPageTemplate,
       context: {
         breadCrumbs: [
-          { name: "🏠", url: "/" },
-          { name: "카테고리", url: "/categories" },
+          { name: "HOME", url: "/" },
+          { name: "시리즈", url: "/categories" },
           {
             name: category.fieldValue,
             url: `/categories/${category.fieldValue}`,
@@ -57,8 +57,8 @@ exports.createPages = async ({ graphql, actions }) => {
     component: CategoryListPageTemplate,
     context: {
       breadCrumbs: [
-        { name: "🏠", url: "/" },
-        { name: "카테고리", url: "/categories" },
+        { name: "HOME", url: "/" },
+        { name: "시리즈", url: "/categories" },
       ],
     },
   });
@@ -69,7 +69,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: TagPageTemplate,
       context: {
         breadCrumbs: [
-          { name: "🏠", url: "/" },
+          { name: "HOME", url: "/" },
           { name: "태그", url: "/tags" },
           {
             name: tag.fieldValue,
@@ -90,7 +90,7 @@ exports.createPages = async ({ graphql, actions }) => {
     component: TagListPageTemplate,
     context: {
       breadCrumbs: [
-        { name: "🏠", url: "/" },
+        { name: "HOME", url: "/" },
         { name: "태그", url: "/tags" },
       ],
     },

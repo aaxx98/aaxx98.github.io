@@ -1,3 +1,5 @@
+import { faBook } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
@@ -21,39 +23,34 @@ const PostItem = ({ id, frontmatter, excerpt }: PostItemProps) => {
   const thumbnail = getImage(frontmatter.thumbnail);
 
   return (
-    <article key={id}>
-      <Link to={`/post/${frontmatter.slug}`}>
-        <div className="p-6 rounded-lg bg-white border-2 border-blue-200 hover:bg-blue-50 hover:shadow-lg transition-shadow duration-300">
-          <h2 className="text-2xl font-bold text-gray-800 mb-2 pb-1 border-b-2 border-blue-200">
-            {frontmatter.title}
-          </h2>
+    <article key={id} className="post-item">
+      <Link to={`/post/${frontmatter.slug}`} className="post-link">
+        <div className="post-card">
+          <div className="post-header">
+            <h2 className="post-title">{frontmatter.title}</h2>
+            <div className="post-meta">
+              <span className="post-date">{frontmatter.date}</span>
+              <div className="post-category">
+                {categoryNames[frontmatter.category]}
+              </div>
+            </div>
+          </div>
 
-          <div className="flex gap-4 items-center">
+          <div className="post-content">
             {thumbnail && (
-              <div className="w-full sm:basis-[40%] sm:shrink-0 overflow-hidden rounded-lg">
+              <div className="post-thumbnail">
                 <GatsbyImage
                   image={thumbnail}
                   alt={frontmatter.title}
-                  className="w-full h-full object-cover object-center"
+                  className="thumbnail-image"
                 />
               </div>
             )}
-            <div className={!thumbnail ? "flex-1" : "flex-1 hidden sm:block"}>
-              <p className="text-sm text-gray-500 mb-1 text-right">
-                작성일: {frontmatter.date}
-              </p>
-              <div className="text-right mb-3">
-                <Link to={`/categories/${frontmatter.category}`}>
-                  <span className="text-sm text-blue-500 hover:underline">
-                    📂 {categoryNames[frontmatter.category]}
-                  </span>
-                </Link>
-              </div>
-              <p className="text-gray-700 leading-relaxed line-clamp-4">
-                {excerpt}
-              </p>
+            <div className={`post-excerpt ${!thumbnail ? "full-width" : ""}`}>
+              <p className="excerpt-text">{excerpt}</p>
             </div>
           </div>
+
           <PostTags tags={frontmatter.tags} />
         </div>
       </Link>

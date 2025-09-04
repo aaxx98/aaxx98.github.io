@@ -1,0 +1,110 @@
+.header {
+  font-family: "RoundedFixedsys", monospace;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-bg);
+  z-index: 1000;
+  padding: 6px 0;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  color: var(--color-primary);
+  text-decoration: none;
+  padding: 8px 16px;
+  background: var(--color-bg);
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  color: var(--color-secondary);
+  transform: translateY(-1px);
+  text-shadow: 0 0 10px rgba(95, 240, 251, 0.5),
+    0 0 20px rgba(95, 240, 251, 0.3);
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-menu a {
+  color: var(--color-primary);
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 2px solid var(--color-primary);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  background: var(--color-primary);
+  color: var(--color-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(155, 240, 132, 0.4);
+}
+
+.nav-menu a.category {
+  color: var(--color-category);
+  border: 2px solid var(--color-category);
+  background: transparent;
+}
+
+.nav-menu a.category:hover,
+.nav-menu a.category.active {
+  background: var(--color-category);
+  color: var(--color-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(199, 167, 226, 0.4);
+}
+
+.nav-menu a.tag {
+  color: var(--color-tag);
+  border: 2px solid var(--color-tag);
+  background: transparent;
+}
+
+.nav-menu a.tag:hover,
+.nav-menu a.tag.active {
+  background: var(--color-tag);
+  color: var(--color-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 242, 92, 0.4);
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+}
+
+.theme-toggle {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  font-size: 1.2rem;
+}

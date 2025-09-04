@@ -14,7 +14,6 @@ const config: GatsbyConfig = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     "gatsby-plugin-sitemap",
-    "gatsby-plugin-postcss",
     {
       resolve: `gatsby-plugin-mdx`,
       options: {

@@ -1,64 +1,47 @@
 import React, { useEffect, useRef, useState } from "react";
 
 const Comment = () => {
-  const commentsEl = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const [status, setStatus] = useState<"pending" | "success" | "failed">(
     "pending"
   );
 
   useEffect(() => {
-    const existingScript = commentsEl.current?.querySelector("script");
-    if (existingScript) {
-      existingScript.remove();
-    }
+    const el = containerRef.current;
+    if (!el) return;
 
-    const scriptEl = document.createElement("script");
-    scriptEl.onload = () => setStatus("success");
-    scriptEl.onerror = () => setStatus("failed");
-    scriptEl.async = true;
-    scriptEl.src = "https://utteranc.es/client.js";
-    scriptEl.setAttribute("repo", "aaxx98/aaxx98.github.io");
-    scriptEl.setAttribute("issue-term", "pathname");
-    scriptEl.setAttribute("theme", "github-light");
-    scriptEl.setAttribute("crossorigin", "anonymous");
+    el.innerHTML = "";
 
-    if (commentsEl.current) {
-      commentsEl.current.appendChild(scriptEl);
-    }
+    const script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.async = true;
+    script.crossOrigin = "anonymous";
+    script.setAttribute("repo", "aaxx98/aaxx98.github.io");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-dark");
 
-    // cleanup function
+    script.onload = () => setStatus("success");
+    script.onerror = () => setStatus("failed");
+
+    el.appendChild(script);
+
     return () => {
-      if (commentsEl.current) {
-        const script = commentsEl.current.querySelector("script");
-        if (script) {
-          script.remove();
-        }
-      }
+      el.innerHTML = "";
     };
   }, []);
 
   return (
-    <div className="w-full max-w-[850px] mx-auto px-8 mt-8">
+    <section className="comment-container" aria-label="댓글">
       {status === "failed" && (
-        <div className="text-red-500 text-center p-4">
+        <div className="comment-status error">
           댓글을 불러오는 중 오류가 발생했습니다. 새로고침 후 다시 시도해주세요.
         </div>
       )}
       {status === "pending" && (
-        <div className="text-gray-500 text-center p-4">
-          댓글을 불러오는 중...
-        </div>
+        <div className="comment-status pending">댓글을 불러오는 중...</div>
       )}
-      <div
-        ref={commentsEl}
-        className="utterances-container"
-        style={{
-          minHeight: "200px",
-          width: "100%",
-          display: "block",
-        }}
-      />
-    </div>
+      <div ref={containerRef} className="utterances-container" />
+    </section>
   );
 };
 

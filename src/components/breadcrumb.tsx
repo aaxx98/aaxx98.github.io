@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 type BreadcrumbProps = {
   info: { name: string; url: string }[];
@@ -8,40 +9,37 @@ type BreadcrumbProps = {
   className?: string;
 };
 
-export default function Breadcrumb({ info }: BreadcrumbProps) {
+export default function Breadcrumb({ info, separator }: BreadcrumbProps) {
   if (!info || info.length === 0) return null;
 
   return (
-    <nav aria-label="breadcrumb" className="text-sm mb-2 text-blue-400">
-      <ol className="flex flex-wrap items-center gap-2">
+    <nav aria-label="breadcrumb" className={`breadcrumb`}>
+      <ol className="breadcrumb-list">
         {info.map((item, idx) => {
           const isLast = idx === info.length - 1;
-
           return (
-            <li key={item.url} className="flex items-center gap-2">
+            <li
+              key={item.url || `${item.name}-${idx}`}
+              className="breadcrumb-item"
+            >
               {isLast ? (
-                <span
-                  aria-current="page"
-                  className="font-semibold text-gray-400"
-                >
+                <span aria-current="page" className="breadcrumb-current">
                   {item.name}
                 </span>
               ) : (
-                <Link
-                  to={item.url}
-                  className="hover:text-gray-900 transition underline"
-                >
+                <Link to={item.url} className="breadcrumb-link">
                   {item.name}
                 </Link>
               )}
               {!isLast && (
-                <StaticImage
-                  src="../images/left_icon.png"
-                  width={16}
-                  height={16}
-                  alt="breadcrumb-seperator"
-                  className="opacity-40"
-                />
+                <span className="breadcrumb-sep">
+                  {separator ?? (
+                    <FontAwesomeIcon
+                      icon={faAngleRight}
+                      className="breadcrumb-sep-icon"
+                    />
+                  )}
+                </span>
               )}
             </li>
           );

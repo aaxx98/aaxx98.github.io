@@ -8,20 +8,19 @@ const PostList = () => {
   const nodes = data.allMdx.nodes;
 
   return (
-    <div className="m-8 mt-12 justify-self-center max-w-[850px] w-full sm:mt-8 sm:mx-30 lg:mx-60">
-      <div className="text-2xl font-semibold mb-6 text-gray-800">
-        전체 {count}건의 포스트
-      </div>
-      <div className="space-y-8">
-        <ul className="space-y-4">
+    <section className="post-list-container">
+      <h1 className="post-list-title">전체 {count}건의 글</h1>
+
+      <div>
+        <ul className="post-list">
           {nodes.map((node: any, index: number) => (
-            <li key={index}>
+            <li className="post-list-item" key={index}>
               <PostItem {...node} />
             </li>
           ))}
         </ul>
       </div>
-    </div>
+    </section>
   );
 };
 

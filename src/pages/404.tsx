@@ -6,24 +6,28 @@ import Seo from "../components/seo";
 const NotFoundPage: React.FC<PageProps> = () => {
   return (
     <Layout>
-      <div className="flex flex-col items-center justify-center min-h-screen bg-blue-50 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h1 className="text-6xl font-extrabold text-blue-400">
-            Page Not Found
-          </h1>
-          <h2 className="mt-4 text-2xl font-medium text-gray-600">
-            페이지를 찾을 수 없습니다.
-          </h2>
-          <p className="mt-2 text-lg text-gray-600">
-            요청한 페이지가 존재하지 않거나 삭제된 포스트일 수 있습니다.
-          </p>
+      <div className="not-found-container">
+        <div className="not-found-content">
+          <div className="error-icon">
+            <span className="error-code">404</span>
+          </div>
 
-          <div className="mt-6">
-            <Link
-              to="/"
-              className="px-5 py-3 text-lg border-1 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white rounded-full transition-colors"
-            >
-              전체 글 목록으로 이동
+          <div className="error-message">
+            <h1 className="error-title">Page Not Found</h1>
+            <h2 className="error-subtitle">페이지를 찾을 수 없습니다</h2>
+            <p className="error-description">
+              요청한 페이지가 존재하지 않거나 삭제된 글일 수 있습니다.
+              <br />
+              다른 페이지를 탐색해보시거나 홈으로 돌아가세요.
+            </p>
+          </div>
+
+          <div className="action-buttons">
+            <Link to="/" className="btn-primary">
+              홈으로 돌아가기
+            </Link>
+            <Link to="/categories" className="btn-secondary">
+              시리즈 보기
             </Link>
           </div>
         </div>

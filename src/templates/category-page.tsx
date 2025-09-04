@@ -1,3 +1,5 @@
+import { faBook } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { graphql, PageProps } from "gatsby";
 import React from "react";
 import Breadcrumb from "../components/breadcrumb";
@@ -41,15 +43,18 @@ const CategoryPage = ({
 
   return (
     <Layout>
-      <div className="w-full">
+      <div className="tag-page-container">
         <CategoryList selected={category.name} />
-        <div className="max-w-[850px] w-full justify-self-center m-8 sm:mx-30 lg:mx-60">
-          <Breadcrumb info={pageContext.breadCrumbs} />
-          <h1 className="text-2xl font-semibold mb-6 text-gray-800">
-            📂 {category.name} :: {category.count}건의 포스트
+        <div className="tag-page-below">
+          <div className="breadcrumb-wrap">
+            <Breadcrumb info={pageContext.breadCrumbs} />
+          </div>
+          <h1 className="category-page-subtitle">
+            <FontAwesomeIcon icon={faBook} className="title-icon" />
+            {category.name} :: {category.count}건의 글
           </h1>
-          <div className="space-y-8">
-            <ul className="space-y-8">
+          <div>
+            <ul className="post-list">
               {posts.map((node: any, index: number) => (
                 <li key={index}>
                   <PostItem {...node} />
@@ -74,7 +79,7 @@ export const query = graphql`
         frontmatter {
           title
           slug
-          date(formatString: "YYYY-MM-DD")
+          date(formatString: "YYYY년 M월 D일")
           tags
           category
           thumbnail {
@@ -96,7 +101,7 @@ export const query = graphql`
 `;
 
 export const Head = ({ pageContext }: PageProps<{}, PageContextProps>) => (
-  <Seo title={`${pageContext.category.name} 카테고리의 포스트`} />
+  <Seo title={`${pageContext.category.name} 시리즈의 글`} />
 );
 
 export default CategoryPage;

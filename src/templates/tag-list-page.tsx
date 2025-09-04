@@ -1,3 +1,5 @@
+import { faHashtag } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { PageProps } from "gatsby";
 import React from "react";
 import Breadcrumb from "../components/breadcrumb";
@@ -13,12 +15,17 @@ type PageContextProps = {
 const TagListPage = ({ pageContext }: PageProps<unknown, PageContextProps>) => {
   return (
     <Layout>
-      <div className="w-full">
+      <div className="tag-page-container">
         <TagList />
-        <div className="max-w-[850px] w-full justify-self-center m-8 sm:mx-30 lg:mx-60">
-          <Breadcrumb info={pageContext.breadCrumbs} />
-          <h2 className="text-2xl font-semibold mb-6 text-gray-800">
-            🏷️ 태그를 선택하세요.
+        <div className="tag-page-below">
+          <div className="breadcrumb-wrap">
+            <Breadcrumb info={pageContext.breadCrumbs} />
+          </div>
+          <h2 className="tag-page-subtitle">
+            <span className="title-icon">
+              <FontAwesomeIcon icon={faHashtag} className="title-icon" />
+            </span>
+            태그를 선택하세요.
           </h2>
         </div>
       </div>

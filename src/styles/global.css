@@ -1,8 +1,11 @@
-@import "tailwindcss";
-pre[class*="language-"] {
-  border-radius: 0.5rem !important;
-}
-
-code[class*="language-"] {
-  border-radius: 0.5rem !important;
-}
+@import url("./font.css");
+@import url("./variables.css");
+@import url("./layout.css");
+@import url("./header.css");
+@import url("./footer.css");
+@import url("./category.css");
+@import url("./tags.css");
+@import url("./breadcrumb.css");
+@import url("./posts.css");
+@import url("./mdx-content.css");
+@import url("./comment.css");
