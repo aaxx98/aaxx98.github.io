@@ -53,11 +53,11 @@
   border-radius: 12px;
   padding: 20px;
   text-decoration: none;
-  background: #2a2a2f;
+  background: var(--color-bg);
   color: var(--color-category);
   font-weight: 600;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease,
-    color 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    background-color 0.25s ease, color 0.25s ease;
   box-shadow: 0 4px 8px rgba(216, 154, 255, 0.15);
 }
 
