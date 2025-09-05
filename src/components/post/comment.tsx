@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const Comment = () => {
+function Comment() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [status, setStatus] = useState<'pending' | 'success' | 'failed'>('pending');
 
@@ -39,6 +39,6 @@ const Comment = () => {
       <div ref={containerRef} className="utterances-container" />
     </section>
   );
-};
+}
 
 export default Comment;

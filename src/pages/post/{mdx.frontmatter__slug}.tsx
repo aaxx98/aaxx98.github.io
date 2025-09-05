@@ -30,7 +30,7 @@ function BlogPost({ data, children }: BlogPostProps) {
       <section className="post-body-container">
         <div className="post-body">{children}</div>
         <div className="post-tags-area">
-          <PostTags tags={data.mdx.frontmatter.tags} />
+          <PostTags tags={data.mdx.frontmatter.tags} isLinked />
         </div>
         <div className="post-top-wrap">
           <button

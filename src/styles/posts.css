@@ -1,5 +1,5 @@
 .post-list-container {
-  font-family: "RoundedFixedsys", monospace;
+  font-family: 'RoundedFixedsys', monospace;
   max-width: 850px;
   width: 100%;
   margin: 0 auto;
@@ -42,7 +42,7 @@
 }
 
 .post-item {
-  font-family: "RoundedFixedsys", monospace;
+  font-family: 'RoundedFixedsys', monospace;
 }
 
 .post-link {
@@ -99,9 +99,19 @@
 .post-date {
   font-size: 0.9rem;
   color: var(--color-text);
-  font-family: "Pretendard Variable", system-ui, -apple-system,
-    BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans,
-    Helvetica Neue, sans-serif;
+  font-family:
+    'Pretendard Variable',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    Open Sans,
+    Helvetica Neue,
+    sans-serif;
   font-weight: 500;
 }
 
@@ -137,9 +147,19 @@
 }
 
 .post-excerpt {
-  font-family: "Pretendard Variable", system-ui, -apple-system,
-    BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans,
-    Helvetica Neue, sans-serif;
+  font-family:
+    'Pretendard Variable',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    Open Sans,
+    Helvetica Neue,
+    sans-serif;
   flex: 1;
   display: flex;
   align-items: center;
@@ -239,10 +259,10 @@
   font-size: 1.1rem;
   font-weight: 300;
   transition: all 0.3s ease;
-  font-family: "RoundedFixedsys", monospace;
+  font-family: 'RoundedFixedsys', monospace;
 }
 
-.post-tag:hover {
+a.post-tag:hover {
   background: var(--color-tag);
   color: var(--color-bg);
   transform: translateY(-1px);
@@ -264,7 +284,7 @@
 }
 
 .post-content-title {
-  font-family: "RoundedFixedsys", monospace;
+  font-family: 'RoundedFixedsys', monospace;
   color: var(--color-text);
   font-size: 2.25rem;
   font-weight: 800;
@@ -275,7 +295,7 @@
 }
 
 .post-content-title::after {
-  content: "";
+  content: '';
   display: block;
   height: 2px;
   margin-top: 8px;
@@ -335,7 +355,7 @@
 }
 
 .post-top-button {
-  font-family: "RoundedFixedsys", monospace;
+  font-family: 'RoundedFixedsys', monospace;
   font-size: 1.5rem;
   cursor: pointer;
   padding: 6px 15px;
@@ -344,7 +364,10 @@
   border: 1px solid var(--color-secondary);
   background: transparent;
   color: var(--color-secondary);
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease,
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease,
     box-shadow 0.2s ease;
 }
 .post-top-button:hover,
