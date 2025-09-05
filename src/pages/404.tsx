@@ -1,7 +1,9 @@
-import * as React from "react";
-import { HeadFC, Link, PageProps } from "gatsby";
-import Layout from "../components/layout";
-import Seo from "../components/seo";
+import * as React from 'react';
+
+import { HeadFC, Link, PageProps } from 'gatsby';
+
+import Layout from '../components/layout';
+import Seo from '../components/seo';
 
 const NotFoundPage: React.FC<PageProps> = () => {
   return (

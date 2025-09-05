@@ -1,11 +1,12 @@
-import * as React from "react";
-import { graphql, useStaticQuery } from "gatsby";
-import { Helmet } from "react-helmet";
+import * as React from 'react';
+
+import { graphql, useStaticQuery } from 'gatsby';
+import { Helmet } from 'react-helmet';
 
 type SeoProps = {
   title: string;
 };
-const Seo = ({ title }: SeoProps) => {
+function Seo({ title }: SeoProps) {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -20,7 +21,7 @@ const Seo = ({ title }: SeoProps) => {
   return (
     <>
       <Helmet>
-        {title === "" ? (
+        {title === '' ? (
           <title>{data.site.siteMetadata.title}</title>
         ) : (
           <title>
@@ -31,16 +32,10 @@ const Seo = ({ title }: SeoProps) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="Content-Type" content="text/html;charset=UTF-8" />
       </Helmet>
-      <meta
-        name="google-site-verification"
-        content="coXYBqdXz20NCF29TTKd8Plu-sNimboMIdtEZ5WZZrU"
-      />
-      <meta
-        name="naver-site-verification"
-        content="aa33d972d16906f015d8a1004d50e72f7d8a0f43"
-      />
+      <meta name="google-site-verification" content="coXYBqdXz20NCF29TTKd8Plu-sNimboMIdtEZ5WZZrU" />
+      <meta name="naver-site-verification" content="aa33d972d16906f015d8a1004d50e72f7d8a0f43" />
     </>
   );
-};
+}
 
 export default Seo;

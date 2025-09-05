@@ -1,20 +1,20 @@
-import { faBook } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { PageProps } from "gatsby";
-import React from "react";
-import Breadcrumb from "../components/breadcrumb";
-import Layout from "../components/layout";
-import CategoryList from "../components/search/category-list";
-import Seo from "../components/seo";
-import { BreadcrumbItem } from "../types/breadcrumb";
+import React from 'react';
+
+import { faBook } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { PageProps } from 'gatsby';
+
+import Breadcrumb from '../components/breadcrumb';
+import Layout from '../components/layout';
+import CategoryList from '../components/search/category-list';
+import Seo from '../components/seo';
+import { BreadcrumbItem } from '../types/breadcrumb';
 
 type PageContextProps = {
   breadCrumbs: BreadcrumbItem[];
 };
 
-const CategoryListPage = ({
-  pageContext,
-}: PageProps<unknown, PageContextProps>) => {
+function CategoryListPage({ pageContext }: PageProps<unknown, PageContextProps>) {
   return (
     <Layout>
       <div className="tag-page-container">
@@ -31,8 +31,10 @@ const CategoryListPage = ({
       </div>
     </Layout>
   );
-};
+}
 
-export const Head = () => <Seo title={"글 시리즈 목록"} />;
+export function Head() {
+  return <Seo title="글 시리즈 목록" />;
+}
 
 export default CategoryListPage;

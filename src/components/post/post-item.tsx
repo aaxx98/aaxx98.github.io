@@ -1,10 +1,10 @@
-import { faBook } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import React from "react";
-import { categoryNames } from "../../code/categoryName";
-import PostTags from "./post-tags";
+import React from 'react';
+
+import { Link } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+
+import PostTags from './post-tags';
+import categoryNames from '../../code/categoryName';
 
 type PostItemProps = {
   id: string;
@@ -19,7 +19,7 @@ type PostItemProps = {
   };
 };
 
-const PostItem = ({ id, frontmatter, excerpt }: PostItemProps) => {
+function PostItem({ id, frontmatter, excerpt }: PostItemProps) {
   const thumbnail = getImage(frontmatter.thumbnail);
 
   return (
@@ -30,9 +30,7 @@ const PostItem = ({ id, frontmatter, excerpt }: PostItemProps) => {
             <h2 className="post-title">{frontmatter.title}</h2>
             <div className="post-meta">
               <span className="post-date">{frontmatter.date}</span>
-              <div className="post-category">
-                {categoryNames[frontmatter.category]}
-              </div>
+              <div className="post-category">{categoryNames[frontmatter.category]}</div>
             </div>
           </div>
 
@@ -46,7 +44,7 @@ const PostItem = ({ id, frontmatter, excerpt }: PostItemProps) => {
                 />
               </div>
             )}
-            <div className={`post-excerpt ${!thumbnail ? "full-width" : ""}`}>
+            <div className={`post-excerpt ${!thumbnail ? 'full-width' : ''}`}>
               <p className="excerpt-text">{excerpt}</p>
             </div>
           </div>
@@ -56,6 +54,6 @@ const PostItem = ({ id, frontmatter, excerpt }: PostItemProps) => {
       </Link>
     </article>
   );
-};
+}
 
 export default PostItem;

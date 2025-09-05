@@ -1,18 +1,20 @@
-import { faHashtag } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { PageProps } from "gatsby";
-import React from "react";
-import Breadcrumb from "../components/breadcrumb";
-import Layout from "../components/layout";
-import TagList from "../components/search/tag-list";
-import Seo from "../components/seo";
-import { BreadcrumbItem } from "../types/breadcrumb";
+import React from 'react';
+
+import { faHashtag } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { PageProps } from 'gatsby';
+
+import Breadcrumb from '../components/breadcrumb';
+import Layout from '../components/layout';
+import TagList from '../components/search/tag-list';
+import Seo from '../components/seo';
+import { BreadcrumbItem } from '../types/breadcrumb';
 
 type PageContextProps = {
   breadCrumbs: BreadcrumbItem[];
 };
 
-const TagListPage = ({ pageContext }: PageProps<unknown, PageContextProps>) => {
+function TagListPage({ pageContext }: PageProps<unknown, PageContextProps>) {
   return (
     <Layout>
       <div className="tag-page-container">
@@ -31,8 +33,10 @@ const TagListPage = ({ pageContext }: PageProps<unknown, PageContextProps>) => {
       </div>
     </Layout>
   );
-};
+}
 
-export const Head = () => <Seo title={"태그 목록"} />;
+export function Head() {
+  return <Seo title="태그 목록" />;
+}
 
 export default TagListPage;

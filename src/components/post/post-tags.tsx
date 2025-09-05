@@ -1,12 +1,14 @@
-import { Link } from "gatsby";
-import * as React from "react";
-import { tagNames } from "../../code/tagName";
+import * as React from 'react';
+
+import { Link } from 'gatsby';
+
+import tagNames from '../../code/tagName';
 
 type PostTagProps = {
   tags: string[];
 };
 
-const PostTags = ({ tags }: PostTagProps) => {
+function PostTags({ tags }: PostTagProps) {
   return (
     <div className="post-tags">
       {tags.map((tag: string) => (
@@ -16,6 +18,6 @@ const PostTags = ({ tags }: PostTagProps) => {
       ))}
     </div>
   );
-};
+}
 
 export default PostTags;

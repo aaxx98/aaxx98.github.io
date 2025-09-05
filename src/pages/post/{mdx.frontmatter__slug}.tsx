@@ -1,10 +1,12 @@
-import { graphql } from "gatsby";
-import * as React from "react";
-import Layout from "../../components/layout";
-import PostContent from "../../components/post/post-content";
-import PostTags from "../../components/post/post-tags";
-import Comment from "../../components/post/comment";
-import Seo from "../../components/seo";
+import * as React from 'react';
+
+import { graphql } from 'gatsby';
+
+import Layout from '../../components/layout';
+import Comment from '../../components/post/comment';
+import PostContent from '../../components/post/post-content';
+import PostTags from '../../components/post/post-tags';
+import Seo from '../../components/seo';
 
 type BlogPostProps = {
   children: React.ReactNode;
@@ -21,7 +23,7 @@ type BlogPostProps = {
   };
 };
 
-const BlogPost = ({ data, children }: BlogPostProps) => {
+function BlogPost({ data, children }: BlogPostProps) {
   return (
     <Layout>
       <PostContent data={data} />
@@ -32,7 +34,7 @@ const BlogPost = ({ data, children }: BlogPostProps) => {
         </div>
         <div className="post-top-wrap">
           <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="post-top-button"
             aria-label="맨 위로 이동"
           >
@@ -46,7 +48,7 @@ const BlogPost = ({ data, children }: BlogPostProps) => {
       </section>
     </Layout>
   );
-};
+}
 
 export const query = graphql`
   query ($id: String) {
@@ -62,8 +64,8 @@ export const query = graphql`
   }
 `;
 
-export const Head = ({ data }: BlogPostProps) => (
-  <Seo title={data.mdx.frontmatter.title} />
-);
+export function Head({ data }: BlogPostProps) {
+  return <Seo title={data.mdx.frontmatter.title} />;
+}
 
 export default BlogPost;

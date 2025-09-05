@@ -1,27 +1,23 @@
-import * as React from "react";
-import { Link } from "gatsby";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import * as React from 'react';
+
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'gatsby';
 
 type BreadcrumbProps = {
   info: { name: string; url: string }[];
-  separator?: React.ReactNode;
-  className?: string;
 };
 
-export default function Breadcrumb({ info, separator }: BreadcrumbProps) {
+export default function Breadcrumb({ info }: BreadcrumbProps) {
   if (!info || info.length === 0) return null;
 
   return (
-    <nav aria-label="breadcrumb" className={`breadcrumb`}>
+    <nav aria-label="breadcrumb" className="breadcrumb">
       <ol className="breadcrumb-list">
         {info.map((item, idx) => {
           const isLast = idx === info.length - 1;
           return (
-            <li
-              key={item.url || `${item.name}-${idx}`}
-              className="breadcrumb-item"
-            >
+            <li key={item.url || `${item.name}-${idx}`} className="breadcrumb-item">
               {isLast ? (
                 <span aria-current="page" className="breadcrumb-current">
                   {item.name}
@@ -33,12 +29,7 @@ export default function Breadcrumb({ info, separator }: BreadcrumbProps) {
               )}
               {!isLast && (
                 <span className="breadcrumb-sep">
-                  {separator ?? (
-                    <FontAwesomeIcon
-                      icon={faAngleRight}
-                      className="breadcrumb-sep-icon"
-                    />
-                  )}
+                  <FontAwesomeIcon icon={faAngleRight} className="breadcrumb-sep-icon" />
                 </span>
               )}
             </li>

@@ -1,13 +1,15 @@
-import { faHashtag } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { graphql, PageProps } from "gatsby";
-import React from "react";
-import Breadcrumb from "../components/breadcrumb";
-import Layout from "../components/layout";
-import PostItem from "../components/post/post-item";
-import TagList from "../components/search/tag-list";
-import Seo from "../components/seo";
-import { BreadcrumbItem } from "../types/breadcrumb";
+import React from 'react';
+
+import { faHashtag } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { graphql, PageProps } from 'gatsby';
+
+import Breadcrumb from '../components/breadcrumb';
+import Layout from '../components/layout';
+import PostItem from '../components/post/post-item';
+import TagList from '../components/search/tag-list';
+import Seo from '../components/seo';
+import { BreadcrumbItem } from '../types/breadcrumb';
 
 type Post = {
   id: string;
@@ -34,10 +36,7 @@ type PageContextProps = {
   tagName: string;
 };
 
-const TagPage = ({
-  data,
-  pageContext,
-}: PageProps<DataProps, PageContextProps>) => {
+function TagPage({ data, pageContext }: PageProps<DataProps, PageContextProps>) {
   const { tag } = pageContext;
   const posts = data.allMdx.nodes;
 
@@ -66,7 +65,7 @@ const TagPage = ({
       </div>
     </Layout>
   );
-};
+}
 
 export const query = graphql`
   query ($tagName: [String]) {
@@ -100,8 +99,8 @@ export const query = graphql`
   }
 `;
 
-export const Head = ({ pageContext }: PageProps<{}, PageContextProps>) => (
-  <Seo title={`${pageContext.tag.name} 태그한 글`} />
-);
+export function Head({ pageContext }: PageProps<{}, PageContextProps>) {
+  return <Seo title={`${pageContext.tag.name} 태그한 글`} />;
+}
 
 export default TagPage;

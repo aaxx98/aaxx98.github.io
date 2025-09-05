@@ -1,7 +1,8 @@
-import * as React from "react";
-import Breadcrumb from "../breadcrumb";
+import * as React from 'react';
 
-const PostContent = ({ data }: any) => {
+import Breadcrumb from '../breadcrumb';
+
+function PostContent({ data }: any) {
   return (
     <div className="post-content-container">
       <h1 className="post-content-title">{data.mdx.frontmatter.title}</h1>
@@ -11,7 +12,7 @@ const PostContent = ({ data }: any) => {
       <div className="breadcrumb-wrap">
         <Breadcrumb
           info={[
-            { name: "HOME", url: "/" },
+            { name: 'HOME', url: '/' },
             {
               name: `${data.mdx.frontmatter.category}`,
               url: `/categories/${data.mdx.frontmatter.category}`,
@@ -25,6 +26,6 @@ const PostContent = ({ data }: any) => {
       </div>
     </div>
   );
-};
+}
 
 export default PostContent;

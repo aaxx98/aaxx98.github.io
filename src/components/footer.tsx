@@ -1,15 +1,14 @@
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React from 'react';
 
-const Footer = () => {
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+function Footer() {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <p>
-          &copy; {new Date().getFullYear()} aaxx98's Blog. All rights reserved.
-        </p>
+        <p>&copy; {new Date().getFullYear()} aaxx98&apos;s Blog. All rights reserved.</p>
 
         <div className="social-links">
           <a
@@ -30,6 +29,6 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
+}
 
 export default Footer;

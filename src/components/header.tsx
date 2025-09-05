@@ -1,9 +1,11 @@
-import React from "react";
-import { Link } from "gatsby";
-import { useSiteMetadata } from "../hooks/useSiteMetaData";
-import ThemeToggle from "./button/themeToggle";
+import React from 'react';
 
-const Header = () => {
+import { Link } from 'gatsby';
+
+import { useSiteMetadata } from '../hooks/useSiteMetaData';
+import ThemeToggle from './button/themeToggle';
+
+function Header() {
   const { title } = useSiteMetadata();
 
   return (
@@ -18,11 +20,7 @@ const Header = () => {
               <ThemeToggle />
             </li>
             <li>
-              <Link
-                to="/categories"
-                className="category"
-                activeClassName="active"
-              >
+              <Link to="/categories" className="category" activeClassName="active">
                 시리즈
               </Link>
             </li>
@@ -41,6 +39,6 @@ const Header = () => {
       </div>
     </header>
   );
-};
+}
 
 export default Header;

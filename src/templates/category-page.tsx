@@ -1,13 +1,15 @@
-import { faBook } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { graphql, PageProps } from "gatsby";
-import React from "react";
-import Breadcrumb from "../components/breadcrumb";
-import Layout from "../components/layout";
-import PostItem from "../components/post/post-item";
-import CategoryList from "../components/search/category-list";
-import Seo from "../components/seo";
-import { BreadcrumbItem } from "../types/breadcrumb";
+import React from 'react';
+
+import { faBook } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { graphql, PageProps } from 'gatsby';
+
+import Breadcrumb from '../components/breadcrumb';
+import Layout from '../components/layout';
+import PostItem from '../components/post/post-item';
+import CategoryList from '../components/search/category-list';
+import Seo from '../components/seo';
+import { BreadcrumbItem } from '../types/breadcrumb';
 
 type Post = {
   id: string;
@@ -34,10 +36,7 @@ type PageContextProps = {
   categoryName: string;
 };
 
-const CategoryPage = ({
-  data,
-  pageContext,
-}: PageProps<DataProps, PageContextProps>) => {
+function CategoryPage({ data, pageContext }: PageProps<DataProps, PageContextProps>) {
   const { category } = pageContext;
   const posts = data.allMdx.nodes;
 
@@ -66,7 +65,7 @@ const CategoryPage = ({
       </div>
     </Layout>
   );
-};
+}
 
 export const query = graphql`
   query ($categoryName: String!) {
@@ -100,8 +99,8 @@ export const query = graphql`
   }
 `;
 
-export const Head = ({ pageContext }: PageProps<{}, PageContextProps>) => (
-  <Seo title={`${pageContext.category.name} 시리즈의 글`} />
-);
+export function Head({ pageContext }: PageProps<{}, PageContextProps>) {
+  return <Seo title={`${pageContext.category.name} 시리즈의 글`} />;
+}
 
 export default CategoryPage;

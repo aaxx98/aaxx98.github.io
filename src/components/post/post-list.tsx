@@ -1,11 +1,12 @@
-import * as React from "react";
-import { usePostdata } from "../../hooks/usePostData";
-import PostItem from "./post-item";
+import * as React from 'react';
 
-const PostList = () => {
+import PostItem from './post-item';
+import { usePostdata } from '../../hooks/usePostData';
+
+function PostList() {
   const data = usePostdata();
   const count = data.allMdx.totalCount;
-  const nodes = data.allMdx.nodes;
+  const { nodes } = data.allMdx;
 
   return (
     <section className="post-list-container">
@@ -22,6 +23,6 @@ const PostList = () => {
       </div>
     </section>
   );
-};
+}
 
 export default PostList;

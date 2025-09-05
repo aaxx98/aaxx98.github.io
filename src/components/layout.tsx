@@ -1,14 +1,16 @@
-import React, { ReactNode } from "react";
-import Header from "./header";
-import { MDXProvider } from "@mdx-js/react";
-import { mdxComponents } from "./mdx-components";
-import Footer from "./footer";
+import React, { ReactNode } from 'react';
+
+import { MDXProvider } from '@mdx-js/react';
+
+import Footer from './footer';
+import Header from './header';
+import mdxComponents from './mdx-components';
 
 type LayoutProps = {
   children: ReactNode;
 };
 
-const Layout = ({ children }: LayoutProps) => {
+function Layout({ children }: LayoutProps) {
   return (
     <div className="layout-wrapper">
       <Header />
@@ -18,6 +20,6 @@ const Layout = ({ children }: LayoutProps) => {
       <Footer />
     </div>
   );
-};
+}
 
 export default Layout;

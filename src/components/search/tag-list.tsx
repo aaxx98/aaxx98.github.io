@@ -1,9 +1,11 @@
-import { faHashtag } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "gatsby";
-import React from "react";
-import { tagNames } from "../../code/tagName";
-import { useTagData } from "../../hooks/useTagData";
+import React from 'react';
+
+import { faHashtag } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'gatsby';
+
+import tagNames from '../../code/tagName';
+import { useTagData } from '../../hooks/useTagData';
 
 type TagListProps = {
   selected?: string;
@@ -17,7 +19,7 @@ type TagType = {
   }[];
 };
 
-const TagList = ({ selected }: TagListProps) => {
+function TagList({ selected = '' }: TagListProps) {
   const data: TagType = useTagData();
   const tags = data.group;
 
@@ -38,21 +40,17 @@ const TagList = ({ selected }: TagListProps) => {
           <Link
             key={tag.fieldValue}
             to={`/tags/${tag.fieldValue}`}
-            className={`tag-item ${
-              selected === tag.fieldValue ? "active" : ""
-            }`}
+            className={`tag-item ${selected === tag.fieldValue ? 'active' : ''}`}
           >
-            <span className="tag-name">
-              {tagNames[tag.fieldValue] || tag.fieldValue}
-            </span>
+            <span className="tag-name">{tagNames[tag.fieldValue] || tag.fieldValue}</span>
             <span className="tag-count">({tag.totalCount})</span>
           </Link>
         ))}
       </div>
 
-      <div className="tag-list-divider"></div>
+      <div className="tag-list-divider" />
     </div>
   );
-};
+}
 
 export default TagList;

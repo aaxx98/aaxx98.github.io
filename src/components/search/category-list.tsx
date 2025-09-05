@@ -1,9 +1,11 @@
-import { faBook } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "gatsby";
-import React from "react";
-import { categoryNames } from "../../code/categoryName";
-import { useCategoryData } from "../../hooks/useCategoryData";
+import React from 'react';
+
+import { faBook } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'gatsby';
+
+import categoryNames from '../../code/categoryName';
+import { useCategoryData } from '../../hooks/useCategoryData';
 
 type CategoryListProps = {
   selected?: string;
@@ -17,7 +19,7 @@ type CategoryType = {
   }[];
 };
 
-const CategoryList = ({ selected }: CategoryListProps) => {
+function CategoryList({ selected }: CategoryListProps) {
   const data: CategoryType = useCategoryData();
   const categories = data.group;
 
@@ -35,9 +37,7 @@ const CategoryList = ({ selected }: CategoryListProps) => {
           <Link
             key={category.fieldValue}
             to={`/categories/${category.fieldValue}`}
-            className={`category-card ${
-              selected === category.fieldValue ? "active" : ""
-            }`}
+            className={`category-card ${selected === category.fieldValue ? 'active' : ''}`}
           >
             <div className="category-name">
               {categoryNames[category.fieldValue] || category.fieldValue}
@@ -46,9 +46,9 @@ const CategoryList = ({ selected }: CategoryListProps) => {
           </Link>
         ))}
       </div>
-      <div className="category-list-divider"></div>
+      <div className="category-list-divider" />
     </div>
   );
-};
+}
 
 export default CategoryList;
