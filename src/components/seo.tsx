@@ -18,6 +18,7 @@ function Seo({ title }: SeoProps) {
     }
   `);
 
+  const url = new URL('/', data.site.siteMetadata.siteUrl).toString();
   return (
     <>
       {title === '' ? (
@@ -28,7 +29,7 @@ function Seo({ title }: SeoProps) {
         </title>
       )}
       <meta name="description" content={data.site.siteMetadata.description} />
-      <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
+      <link rel="canonical" href={url} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta httpEquiv="Content-Type" content="text/html;charset=UTF-8" />
       <meta name="google-site-verification" content="coXYBqdXz20NCF29TTKd8Plu-sNimboMIdtEZ5WZZrU" />
