@@ -6,5 +6,8 @@ const tagNames: Record<string, string> = {
   blog: '블로그',
   seo: 'SEO',
   'tailwind-css': 'Tailwind CSS',
+  bootcamp: '부트캠프후기',
+  'multi-campus': '멀티캠퍼스IT부트캠프',
+  'ureca-backend': 'LG U+ 유레카 3기 백엔드',
 };
 export default tagNames;
