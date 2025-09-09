@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://aaxx98.github.io/sitemap-index.xml
+Host: https://aaxx98.github.io
