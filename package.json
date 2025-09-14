@@ -24,13 +24,11 @@
     "@fortawesome/free-solid-svg-icons": "^7.0.1",
     "@fortawesome/react-fontawesome": "^3.0.2",
     "@mdx-js/react": "^2.3.0",
-    "@types/react-helmet": "^6.1.11",
     "gatsby": "^5.14.1",
     "gatsby-plugin-canonical-urls": "^5.15.0",
     "gatsby-plugin-image": "^3.14.0",
     "gatsby-plugin-manifest": "^5.14.0",
     "gatsby-plugin-mdx": "^5.14.1",
-    "gatsby-plugin-react-helmet": "^6.15.0",
     "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sharp": "^5.14.0",
     "gatsby-plugin-sitemap": "^6.15.0",
@@ -40,8 +38,7 @@
     "gatsby-transformer-sharp": "^5.14.0",
     "prismjs": "^1.30.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-helmet": "^6.1.0"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.19",

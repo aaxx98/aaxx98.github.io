@@ -12,7 +12,6 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
-    `gatsby-plugin-react-helmet`,
     'gatsby-plugin-sitemap',
     {
       resolve: `gatsby-plugin-mdx`,
@@ -71,6 +70,8 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
+        host: 'https://aaxx98.github.io/',
+        sitemap: 'https://aaxx98.github.io/sitemap-index.xml',
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
