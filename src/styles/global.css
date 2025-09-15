@@ -9,6 +9,7 @@
 @import url('./posts.css');
 @import url('./mdx-content.css');
 @import url('./comment.css');
+@import url('./toc.css');
 
 .no-theme-transition *,
 .no-theme-transition {

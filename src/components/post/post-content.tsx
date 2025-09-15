@@ -6,9 +6,7 @@ function PostContent({ data }: any) {
   return (
     <div className="post-content-container">
       <h1 className="post-content-title">{data.mdx.frontmatter.title}</h1>
-
       <p className="post-content-meta">작성일: {data.mdx.frontmatter.date}</p>
-
       <div className="breadcrumb-wrap">
         <Breadcrumb
           info={[

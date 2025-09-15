@@ -7,6 +7,7 @@ import Comment from '../../components/post/comment';
 import PostContent from '../../components/post/post-content';
 import PostTags from '../../components/post/post-tags';
 import Seo from '../../components/seo';
+import CollapsibleTOC from '../../components/post/toc';
 
 type BlogPostProps = {
   children: React.ReactNode;
@@ -28,6 +29,7 @@ function BlogPost({ data, children }: BlogPostProps) {
     <Layout>
       <PostContent data={data} />
       <section className="post-body-container">
+        <CollapsibleTOC />
         <div className="post-body">{children}</div>
         <div className="post-tags-area">
           <PostTags tags={data.mdx.frontmatter.tags} isLinked />
