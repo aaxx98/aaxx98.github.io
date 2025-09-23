@@ -10,5 +10,6 @@ const tagNames: Record<string, string> = {
   'multi-campus': '멀티캠퍼스IT부트캠프',
   'ureca-backend': 'LG U+ 유레카 3기 백엔드',
   java: 'JAVA',
+  study: '스터디',
 };
 export default tagNames;
