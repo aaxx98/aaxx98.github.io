@@ -11,5 +11,7 @@ const tagNames: Record<string, string> = {
   'ureca-backend': 'LG U+ 유레카 3기 백엔드',
   java: 'JAVA',
   study: '스터디',
+  database: '데이터베이스',
+  sql: 'SQL',
 };
 export default tagNames;
