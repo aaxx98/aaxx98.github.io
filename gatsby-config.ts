@@ -12,7 +12,22 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
-    'gatsby-plugin-sitemap',
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap-index.xml`,
+        query: `
+          {
+            allSitePage {
+              nodes {
+                path
+              }
+            }
+          }
+        `,
+        resolveSiteUrl: () => `https://aaxx98.github.io`,
+      },
+    },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
