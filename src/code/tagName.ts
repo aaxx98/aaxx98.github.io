@@ -13,5 +13,7 @@ const tagNames: Record<string, string> = {
   study: '스터디',
   database: '데이터베이스',
   sql: 'SQL',
+  conccurency: '동시성',
+  redis: 'Redis',
 };
 export default tagNames;
