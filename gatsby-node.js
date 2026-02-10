@@ -1,14 +1,24 @@
-const path = require("path");
+const path = require('path');
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+
+  createTypes(`
+    type Mdx implements Node {
+      frontmatter: Frontmatter
+    }
+
+    type Frontmatter {
+      thumbnail: File @fileByRelativePath
+    }
+  `);
+};
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const CategoryPageTemplate = path.resolve(
-    `./src/templates/category-page.tsx`
-  );
-  const CategoryListPageTemplate = path.resolve(
-    `./src/templates/category-list-page.tsx`
-  );
+  const CategoryPageTemplate = path.resolve(`./src/templates/category-page.tsx`);
+  const CategoryListPageTemplate = path.resolve(`./src/templates/category-list-page.tsx`);
   const TagPageTemplate = path.resolve(`./src/templates/tag-page.tsx`);
   const TagListPageTemplate = path.resolve(`./src/templates/tag-list-page.tsx`);
 
@@ -36,8 +46,8 @@ exports.createPages = async ({ graphql, actions }) => {
       component: CategoryPageTemplate,
       context: {
         breadCrumbs: [
-          { name: "HOME", url: "/" },
-          { name: "시리즈", url: "/categories" },
+          { name: 'HOME', url: '/' },
+          { name: '시리즈', url: '/categories' },
           {
             name: category.fieldValue,
             url: `/categories/${category.fieldValue}`,
@@ -53,12 +63,12 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   createPage({
-    path: "/categories",
+    path: '/categories',
     component: CategoryListPageTemplate,
     context: {
       breadCrumbs: [
-        { name: "HOME", url: "/" },
-        { name: "시리즈", url: "/categories" },
+        { name: 'HOME', url: '/' },
+        { name: '시리즈', url: '/categories' },
       ],
     },
   });
@@ -69,8 +79,8 @@ exports.createPages = async ({ graphql, actions }) => {
       component: TagPageTemplate,
       context: {
         breadCrumbs: [
-          { name: "HOME", url: "/" },
-          { name: "태그", url: "/tags" },
+          { name: 'HOME', url: '/' },
+          { name: '태그', url: '/tags' },
           {
             name: tag.fieldValue,
             url: `/tags/${tag.fieldValue}`,
@@ -86,12 +96,12 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   createPage({
-    path: "/tags",
+    path: '/tags',
     component: TagListPageTemplate,
     context: {
       breadCrumbs: [
-        { name: "HOME", url: "/" },
-        { name: "태그", url: "/tags" },
+        { name: 'HOME', url: '/' },
+        { name: '태그', url: '/tags' },
       ],
     },
   });
