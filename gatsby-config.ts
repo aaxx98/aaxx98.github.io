@@ -32,6 +32,7 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         gatsbyRemarkPlugins: [
+          'gatsby-remark-gifs',
           {
             resolve: `gatsby-remark-images`,
             options: {

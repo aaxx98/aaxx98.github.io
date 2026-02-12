@@ -72,7 +72,9 @@ const mdxComponents = {
 
   // 테이블
   table: (props: React.TableHTMLAttributes<HTMLTableElement>) => (
-    <table {...props} className={cx('mdx-table', props.className)} />
+    <div className="mdx-table-wrapper">
+      <table {...props} className={cx('mdx-table', props.className)} />
+    </div>
   ),
   thead: (props: React.HTMLAttributes<HTMLTableSectionElement>) => (
     <thead {...props} className={cx('mdx-thead', props.className)} />
